@@ -40,7 +40,7 @@ const features = [
 
 export const HowItWorksPreview = () => {
   return (
-    <section className="py-32 bg-[#f6f6f6]">
+    <section className="py-32 bg-[#f6f6f6] overflow-hidden">
       <Container>
         <div className="grid grid-cols-2 gap-6">
           {/* LEFT - HOW IT WORKS */}
@@ -128,7 +128,7 @@ export const HowItWorksPreview = () => {
                     viewport={{ once: true }}
                     className="flex items-center gap-3 text-sm"
                   >
-                    <span className="w-5 h-5 flex items-center justify-center rounded-full border border-white text-xs">
+                    <span className="w-5 h-5 flex items-center justify-center rounded-full border border-[#1ea672] text-[#1ea672] text-xs">
                       ✓
                     </span>
                     {item}
@@ -150,7 +150,7 @@ export const HowItWorksPreview = () => {
                 alt="Toolbox"
                 width={420}
                 height={420}
-                className="object-contain scale-110"
+                className="object-contain scale-110 translate-x-16"
               />
             </motion.div>
           </motion.div>

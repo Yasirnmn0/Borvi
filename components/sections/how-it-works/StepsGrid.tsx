@@ -9,25 +9,25 @@ const processSteps = [
     stepNum: "1",
     title: "Browse Equipment",
     desc: "Explore our wide range of high-quality equipment across multiple categories.",
-    imgSrc: "/images/HowItWorks/Step-1.png",
+    imgSrc: "/images/HowItWorks/step-1.png",
   },
   {
     stepNum: "2",
     title: "Download Our App",
     desc: "Download the Borvi app from Play Store or App Store to get started.",
-    imgSrc: "/images/HowItWorks/Step-2.png",
+    imgSrc: "/images/HowItWorks/step-2.png",
   },
   {
     stepNum: "3",
     title: "Book Through the App",
     desc: "Choose your equipment, select the date & time, and confirm your booking.",
-    imgSrc: "/images/HowItWorks/Step-3.png",
+    imgSrc: "/images/HowItWorks/step-3.png",
   },
   {
     stepNum: "4",
     title: "Pickup or Get Delivery",
     desc: "Pick up from our location or get it delivered to your doorstep. It's your choice!",
-    imgSrc: "/images/HowItWorks/Step-4.png",
+    imgSrc: "/images/HowItWorks/step-4.png",
   },
 ];
 
