@@ -9,15 +9,13 @@ import HowCTA from "@/components/sections/how-it-works/CTA-Banner";
 
 export default function HowItWorksPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Container>
-        {/* Ordered section composition following layout strategy perfectly */}
-        <HowHero />
-        <HowSteps />
-        <HowValueStrip />
-        <HowAppPromo />
-        <HowCTA />
-      </Container>
-    </main>
+    <>
+      {/* Ordered section composition following layout strategy perfectly */}
+      <HowHero />
+      <HowSteps />
+      <HowValueStrip />
+      <HowAppPromo />
+      <HowCTA />
+    </>
   );
 }

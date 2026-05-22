@@ -2,6 +2,9 @@
 
 import { Users, Hammer, MapPin, Calendar } from "lucide-react";
 import Container from "@/components/layout/Container";
+import { motion } from "framer-motion";
+import { containerStagger, fadeUp, scaleIn } from "@/lib/animation";
+
 const platformStats = [
   {
     icon: Users,
@@ -31,21 +34,44 @@ const platformStats = [
 
 export default function AboutStats() {
   return (
-    <section className="py-0 bg-[#f6f6f6]">
+    <section className="pt-16 bg-[#f6f6f6]">
       <Container>
-        {/* Main Wrapped Banner Box */}
-        <div className="bg-white shadow-md border border-slate-100 rounded-[24px] px-8 py-8 md:py-10 ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 items-center">
+        {/* MAIN CARD */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="bg-white shadow-md border border-slate-100 rounded-[24px] px-8 py-8 md:py-10"
+        >
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 items-center"
+          >
             {platformStats.map((stat, i) => {
               const Icon = stat.icon;
+
               return (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeUp}
+                  whileHover={{ y: -5 }}
                   className="flex gap-4 px-6 pt-6 sm:pt-0 first:pt-0 lg:first:pl-4 items-center"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#032d22] flex items-center justify-center text-white shrink-0">
+                  {/* ICON */}
+                  <motion.div
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="w-12 h-12 rounded-full bg-[#032d22] flex items-center justify-center text-white shrink-0"
+                  >
                     <Icon className="w-5 h-5 stroke-[2]" />
-                  </div>
+                  </motion.div>
+
+                  {/* TEXT */}
                   <div className="space-y-0.5">
                     <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                       {stat.metric}
@@ -57,11 +83,11 @@ export default function AboutStats() {
                       {stat.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Container>
     </section>
   );

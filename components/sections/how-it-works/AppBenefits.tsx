@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp, containerStagger, scaleIn } from "@/lib/animation";
 
 const appBenefits = [
   {
@@ -93,30 +95,49 @@ const appBenefits = [
 
 export default function HowAppPromo() {
   return (
-    <section className="w-full py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="w-full py-16 px-10 bg-[#f6f6f6] overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 items-center gap-16">
           {/* LEFT CONTENT */}
-          <div className="space-y-10">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-10"
+          >
             {/* Heading */}
             <div>
-              <h2 className="text-4xl font-extrabold text-[#111827]">
+              <h2 className="text-4xl text-center font-extrabold text-[#111827]">
                 Why Use <span className="text-[#0c7a4b]">Our App?</span>
               </h2>
-              <p className="mt-3 text-gray-500">
+              <p className="mt-3 text-center text-gray-500">
                 Everything you need, right at your fingertips.
               </p>
             </div>
 
             {/* Features */}
-            <div className="flex flex-wrap lg:flex-nowrap justify-between items-start gap-10">
+            <motion.div
+              variants={containerStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="flex flex-wrap lg:flex-nowrap justify-between items-start gap-10"
+            >
               {appBenefits.map((item, i) => (
-                <div
+                <motion.div
                   key={i}
+                  variants={fadeUp}
+                  whileHover={{ y: -6 }}
                   className="flex flex-col items-center text-center max-w-[180px] space-y-3"
                 >
                   {/* ICON */}
-                  <div className="text-[#0c7a4b]">{item.icon}</div>
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                  >
+                    {item.icon}
+                  </motion.div>
 
                   {/* TITLE */}
                   <h3 className="text-sm font-semibold text-[#111827]">
@@ -127,25 +148,39 @@ export default function HowAppPromo() {
                   <p className="text-xs text-gray-500 leading-relaxed">
                     {item.info}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* RIGHT VISUAL */}
-          <div className="relative flex justify-center">
-            {/* SOFT BACKGROUND CIRCLE */}
-            <div className="absolute w-[380px] h-[380px] bg-[#eef7f2] rounded-full right-10 top-10"></div>
+          <motion.div
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="relative flex justify-center"
+          >
+            {/* BACKGROUND CIRCLE */}
+            <div className="absolute w-[380px] h-[380px] bg-[#eef7f2] rounded-full right-10 top-10" />
 
             {/* DOT PATTERN */}
             <div
               className="absolute right-10 top-24 w-24 h-32 hidden lg:block 
-          bg-[radial-gradient(#0c7a4b_2px,transparent_2px)] 
-          [background-size:12px_12px] opacity-60"
+              bg-[radial-gradient(#0c7a4b_2px,transparent_2px)] 
+              [background-size:12px_12px] opacity-60"
             />
 
-            {/* PHONE IMAGE */}
-            <div className="relative z-10">
+            {/* FLOATING IMAGE */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative z-10"
+            >
               <Image
                 src="/images/HowItWorks/Phone-Hand.png"
                 alt="App"
@@ -153,8 +188,8 @@ export default function HowAppPromo() {
                 height={520}
                 className="object-contain"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

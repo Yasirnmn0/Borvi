@@ -1,34 +1,69 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Users2, CalendarDays, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  containerStagger,
+  fadeUp,
+  slideRight,
+  slideLeft,
+  scaleIn,
+} from "@/lib/animation";
 
 export default function AboutStory() {
   return (
-    <section className="py-12 md:py-16 bg-slate-50/50 border-y border-slate-100">
+    <section className="py-12 md:py-16 bg-[#f6f6f6] border-y border-slate-100 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-10 px-10">
-        {/* Left Side: Editorial Work Snapshot */}
-        <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg bg-slate-900 order-2 lg:order-1">
-          <Image
-            src="/images/borvi-shop.png"
-            alt="Borvi Logistics and Inventory Management Team"
-            fill
-            sizes="(max-w-1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+        {/* LEFT IMAGE */}
+        <motion.div
+          variants={slideLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg bg-slate-900 order-2 lg:order-1"
+        >
+          <motion.div variants={scaleIn} className="w-full h-full">
+            <Image
+              src="/images/Borvi-shop.png"
+              alt="Borvi Logistics and Inventory Management Team"
+              fill
+              sizes="(max-width:1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </motion.div>
+        </motion.div>
 
-        {/* Right Side: Narrative Copywriting & Secondary Badges */}
-        <div className="space-y-6 order-1 lg:order-2 px-10">
-          <span className="text-[#0c7a4b] font-bold text-xs md:text-sm tracking-wider uppercase bg-[#0c7a4b]/5 px-3 py-1.5 rounded-md inline-block">
+        {/* RIGHT CONTENT */}
+        <motion.div
+          variants={containerStagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="space-y-6 order-1 lg:order-2 px-10"
+        >
+          {/* Badge */}
+          <motion.span
+            variants={fadeUp}
+            className="text-[#0c7a4b] font-bold text-xs md:text-sm tracking-wider uppercase bg-[#0c7a4b]/5 px-3 py-1.5 rounded-md inline-block"
+          >
             Our Story
-          </span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+          </motion.span>
+
+          {/* Heading */}
+          <motion.h2
+            variants={fadeUp}
+            className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight"
+          >
             Built on Trust. Focused on{" "}
             <span className="text-[#0c7a4b]">Quality.</span>
-          </h2>
-          <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed">
+          </motion.h2>
+
+          {/* Paragraphs */}
+          <motion.div
+            variants={fadeUp}
+            className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed"
+          >
             <p>
               Borvi was founded with a simple mission – to make high-quality
               equipment accessible to everyone. Whether you&apos;re a homeowner,
@@ -39,49 +74,62 @@ export default function AboutStory() {
               We carefully maintain our equipment and constantly expand our
               inventory to serve you better.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Core Story Summary Pill-boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100">
-              <div className="p-2 rounded-lg bg-emerald-50 text-[#0c7a4b] shrink-0">
-                <Users2 className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-900">Wide Range</h4>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  1500+ equipment options
-                </p>
-              </div>
-            </div>
+          {/* FEATURES */}
+          <motion.div
+            variants={containerStagger}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2"
+          >
+            {[
+              {
+                icon: Users2,
+                title: "Wide Range",
+                desc: "1500+ equipment options",
+              },
+              {
+                icon: Award,
+                title: "Trusted By",
+                desc: "1000+ happy clients",
+              },
+              {
+                icon: CalendarDays,
+                title: "Serving Since",
+                desc: "2020 with pride",
+              },
+            ].map((item, i) => {
+              const Icon = item.icon;
 
-            <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100">
-              <div className="p-2 rounded-lg bg-emerald-50 text-[#0c7a4b] shrink-0">
-                <Award className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-900">Trusted By</h4>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  1000+ happy clients
-                </p>
-              </div>
-            </div>
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  whileHover={{ y: -5 }}
+                  className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100"
+                >
+                  {/* ICON */}
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
+                    className="p-2 rounded-lg bg-emerald-50 text-[#0c7a4b] shrink-0"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.div>
 
-            <div className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100">
-              <div className="p-2 rounded-lg bg-emerald-50 text-[#0c7a4b] shrink-0">
-                <CalendarDays className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-900">
-                  Serving Since
-                </h4>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  2020 with pride
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+                  {/* TEXT */}
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-900">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-medium">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

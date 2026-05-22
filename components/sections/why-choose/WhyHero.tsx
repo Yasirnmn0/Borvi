@@ -5,7 +5,7 @@ import { ShieldCheck } from "lucide-react";
 
 export default function WhyHero() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <section className="w-full max-w-7xl bg-[#f6f6f6] mx-auto px-10 sm:px-6 lg:px-10 py-12 md:py-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Copy Block */}
         <div className="lg:col-span-5 space-y-5">
@@ -27,7 +27,7 @@ export default function WhyHero() {
         {/* Right Graphic Box with Trusted Absolute Overlay Badge */}
         <div className="lg:col-span-7 relative w-full aspect-[4/3] rounded-[32px] overflow-hidden bg-neutral-100 shadow-xl shadow-neutral-100/40">
           <Image
-            src="/images/Hero/warehouse-display.jpg"
+            src="/images/Borvi5.png"
             alt="Borvi equipment warehouse layout display catalog"
             fill
             priority

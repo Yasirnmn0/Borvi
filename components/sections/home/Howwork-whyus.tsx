@@ -150,7 +150,7 @@ export const HowItWorksPreview = () => {
                 alt="Toolbox"
                 width={420}
                 height={420}
-                className="object-contain scale-125 translate-x-16"
+                className="object-contain scale-110"
               />
             </motion.div>
           </motion.div>

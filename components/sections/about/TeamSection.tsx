@@ -74,7 +74,7 @@ const EmailIcon = () => (
 
 export default function AboutTeam() {
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section className="py-12 md:py-16 bg-[#f6f6f6]">
       <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
         <span className="text-[#0c7a4b] font-bold text-xs md:text-sm tracking-wide uppercase bg-[#0c7a4b]/5 px-3 py-1.5 rounded-md inline-block">
           Meet Our Team

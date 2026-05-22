@@ -7,7 +7,7 @@ import ContactSupportGrid from "@/components/sections/contact/ContactSupportGrid
 
 export default function ContactUsPage() {
   return (
-    <div className="w-full bg-white antialiased">
+    <div className="w-full antialiased">
       {/* Breadcrumb Navigation Hook */}
       <nav className="w-full bg-neutral-50 border-b border-neutral-100 py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs font-medium text-neutral-500 flex items-center gap-1.5">
