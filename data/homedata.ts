@@ -73,7 +73,7 @@ export const categoryList = [
   },
   {
     title: "Cleaning Equipment",
-    image: "/images/Categories/cleaner1.png",
+    image: "/images/Categories/Cleaner1.png",
     condition: "Good",
     availability: "Available",
     pricing: "From $8/day",
