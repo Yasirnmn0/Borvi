@@ -1,100 +1,168 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import Container from "@/components/layout/Container";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { fadeUp, containerStagger, scaleIn } from "@/lib/animation";
 
-const testimonialReviews = [
+const testimonials = [
   {
     name: "Rohit Sharma",
     location: "Delhi",
-    review:
-      "Borvi made renting equipment so easy and affordable. The delivery was on time and the equipment was in excellent condition.",
-    rating: 5,
-    avatar: "/images/Users/user-1.jpg",
+    text: "Great experience! Equipment was in excellent condition and delivery was very prompt.",
+    image: "/images/User1.png",
   },
   {
     name: "Anjali Verma",
     location: "Noida",
-    review:
-      "Great customer support and a wide variety of equipment to choose from. Highly recommended!",
-    rating: 5,
-    avatar: "/images/Users/user-2.jpg",
+    text: "Very affordable and the app is so easy to use. Highly recommended!",
+    image: "/images/User2.png",
   },
   {
     name: "Vikram Mehta",
     location: "Gurgaon",
-    review:
-      "I rented a generator for my event. Quality was top-notch and the process was completely hassle-free.",
-    rating: 5,
-    avatar: "/images/Users/user-3.jpg",
+    text: "Rented a tent for our trip. Quality was amazing and the process was smooth.",
+    image: "/images/User3.png",
+  },
+  {
+    name: "Siddharth Malhotra",
+    location: "Mumbai",
+    text: "Excellent support team and seamless booking. Will definitely use it again.",
+    image: "/images/User4.png",
   },
 ];
 
 export default function WhyTestimonials() {
+  const [startIndex, setStartIndex] = useState(0);
+
+  const visibleCount =
+    typeof window !== "undefined" && window.innerWidth < 768 ? 1 : 3;
+
+  const nextSlide = () => {
+    setStartIndex((prev) =>
+      prev + visibleCount >= testimonials.length ? 0 : prev + 1,
+    );
+  };
+
+  const prevSlide = () => {
+    setStartIndex((prev) =>
+      prev === 0 ? Math.max(0, testimonials.length - visibleCount) : prev - 1,
+    );
+  };
+
+  const visibleTestimonials = testimonials.slice(
+    startIndex,
+    startIndex + visibleCount,
+  );
+
   return (
-    <section className="w-full bg-neutral-50/40 py-16 border-t border-b border-neutral-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-xl mx-auto space-y-3 mb-14">
-          <h2 className="text-2xl md:text-3xl font-black text-[#032f19] tracking-tight">
-            Why Customers Trust <span className="text-[#0c7a4b]">Borvi</span>
+    <section className="py-26 bg-[#f6f6f6] relative overflow-hidden">
+      <Container>
+        {/* HEADING */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-col items-center text-center mb-14"
+        >
+          <h2 className="text-[42px] font-extrabold tracking-[-1px] text-[#111827]">
+            What Our <span className="text-[#0c7a4b]">Customers</span> Say
           </h2>
-          <p className="text-neutral-500 text-xs md:text-sm font-medium">
-            Real stories from real customers who love our service.
-          </p>
-        </div>
 
-        <div className="relative w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonialReviews.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-3xl p-6 border border-neutral-100/80 shadow-sm relative flex flex-col justify-between space-y-6"
-              >
-                <div className="text-4xl font-serif text-[#0c7a4b]/20 absolute top-4 left-4 leading-none select-none">
-                  “
-                </div>
-
-                <div className="space-y-3 relative z-10">
-                  <div className="flex items-center gap-0.5 text-amber-400">
-                    {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xs md:text-sm text-neutral-600 font-normal leading-relaxed italic">
-                    {item.review}
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3.5 pt-4 border-t border-neutral-50">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-100 shrink-0">
-                    <Image
-                      src={item.avatar}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900">
-                      {item.name}
-                    </h4>
-                    <p className="text-[10px] text-neutral-400 font-medium">
-                      {item.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mt-3 flex w-12 h-1.5 rounded-full overflow-hidden">
+            <div className="bg-[#111827] w-1/3" />
+            <div className="bg-[#0c7a4b] w-2/3" />
+            <div className="bg-[#111827] w-1/3" />
           </div>
+        </motion.div>
 
-          <button className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-100 hidden xl:flex items-center justify-center text-slate-700 hover:text-[#0c7a4b] transition-colors">
-            <ChevronLeft className="w-5 h-5" />
+        {/* CAROUSEL */}
+        <div className="relative w-full px-4 sm:px-8">
+          {/* LEFT BUTTON */}
+          <button
+            onClick={prevSlide}
+            className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white border rounded-full shadow-md hover:bg-gray-50 active:scale-95"
+          >
+            <ChevronLeft className="w-5 h-5 mx-auto" />
           </button>
-          <button className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-neutral-100 hidden xl:flex items-center justify-center text-slate-700 hover:text-[#0c7a4b] transition-colors">
-            <ChevronRight className="w-5 h-5" />
+
+          {/* GRID WITH ANIMATION */}
+          <motion.div
+            variants={containerStagger}
+            initial="hidden"
+            animate="show"
+            key={startIndex} // 🔥 THIS FIXES SLIDE ANIMATION
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          >
+            <AnimatePresence mode="wait">
+              {visibleTestimonials.map((t, i) => (
+                <motion.div
+                  key={t.name + startIndex}
+                  variants={fadeUp}
+                  initial="hidden"
+                  animate="show"
+                  exit={{ opacity: 0, y: 40 }}
+                  whileHover={{ y: -6 }}
+                  className="relative bg-white border rounded-[24px] p-7 pt-10 shadow-sm flex flex-col justify-between min-h-[220px]"
+                >
+                  {/* Quote */}
+                  <span className="absolute top-5 left-6 text-[#0c7a4b] text-[36px]">
+                    “
+                  </span>
+
+                  {/* TEXT */}
+                  <div className="space-y-4">
+                    <p className="text-[14.5px] text-gray-600 pl-3">{t.text}</p>
+
+                    {/* STARS */}
+                    <div className="flex pl-3 text-[#0c7a4b]">
+                      {[...Array(5)].map((_, index) => (
+                        <Star key={index} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* FOOTER */}
+                  <div className="mt-6 flex justify-between items-end pl-3">
+                    <div>
+                      <h4 className="text-[16px] font-bold text-[#111827]">
+                        {t.name}
+                      </h4>
+                      <span className="text-[13px] text-gray-400">
+                        {t.location}
+                      </span>
+                    </div>
+
+                    {/* AVATAR */}
+                    <motion.div
+                      variants={scaleIn}
+                      className="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-md relative"
+                    >
+                      <Image
+                        src={t.image}
+                        alt={t.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* RIGHT BUTTON */}
+          <button
+            onClick={nextSlide}
+            className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 z-30 w-11 h-11 bg-white border rounded-full shadow-md hover:bg-gray-50 active:scale-95"
+          >
+            <ChevronRight className="w-5 h-5 mx-auto" />
           </button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

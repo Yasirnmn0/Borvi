@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, slideRight } from "@/lib/animation";
-
+import HeroText from "@/components/common/HeroText";
 export default function HowHero() {
   return (
     <section className="w-full bg-[#f6f6f6] px-10 lg:py-6 overflow-hidden">
@@ -16,7 +16,7 @@ export default function HowHero() {
           viewport={{ once: true }}
           className="lg:col-span-5 pl-12 space-y-10"
         >
-          <div className="space-y-6">
+          <div className="space-y-4">
             <motion.span
               variants={fadeUp}
               className="text-[#0c7a4b] font-semibold text-xs md:text-sm uppercase tracking-wider bg-[#0c7a4b]/10 px-2.5 py-1 rounded inline-block"
@@ -24,22 +24,32 @@ export default function HowHero() {
               How It Works
             </motion.span>
 
-            <motion.h1
+            {/* <motion.h1
               variants={fadeUp}
               className="text-3xl md:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.15]"
             >
               Renting Made Simple <br />
               in Just <span className="text-[#0c7a4b]">4 Easy Steps</span>
-            </motion.h1>
+            </motion.h1> */}
           </div>
-
-          <motion.p
+          <HeroText
+            size="md"
+            title={
+              <>
+                Renting Made Simple <br />
+                in Just <span className="text-[#0c7a4b]">4 Easy Steps</span>
+              </>
+            }
+            description="We've simplified the rental process so you can get the
+            equipment you need quickly and hassle-free."
+          />
+          {/* <motion.p
             variants={fadeUp}
             className="text-slate-600 text-sm md:text-[15px] leading-relaxed max-w-xl"
           >
             We&apos;ve simplified the rental process so you can get the
             equipment you need quickly and hassle-free.
-          </motion.p>
+          </motion.p> */}
         </motion.div>
 
         {/* RIGHT IMAGE */}

@@ -41,7 +41,7 @@ export default function ContactCardsGrid() {
         <div className="text-center space-y-1">
           <h2 className="text-2xl font-black text-[#032f19] tracking-tight relative inline-block">
             Get in <span className="text-[#0c7a4b] relative z-10">Touch</span>
-            <span className="absolute bottom-0 left-1/3 right-1/3 h-[2.5px] bg-[#0c7a4b] rounded-full mt-1" />
+            <span className="absolute bottom-0 left-1/3 right-1/3 h-[2.5px] bg-[#0c7a4b] rounded-full mt-4" />
           </h2>
           <p className="text-neutral-400 text-xs font-medium pt-2">
             Reach out to us through any of these channels.
@@ -64,23 +64,23 @@ export default function ContactCardsGrid() {
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className={`bg-neutral-50/50 rounded-2xl border border-neutral-100/80 p-5 flex items-start gap-4 transition-all duration-300 ${
+                className={`bg-neutral-50/50 rounded-2xl border border-neutral-100/80 p-8 flex items-start gap-4 transition-all duration-300 ${
                   channel.link
                     ? "hover:bg-white hover:shadow-lg hover:shadow-neutral-100/60 cursor-pointer group"
                     : "cursor-default"
                 }`}
               >
                 {/* Icon Circle Backdrop */}
-                <div className="w-10 h-10 rounded-full bg-[#e7f2ec] text-[#0c7a4b] flex items-center justify-center shrink-0">
-                  <Icon className="w-4 h-4 stroke-[2]" />
+                <div className="w-12 h-12 rounded-full bg-[#e7f2ec] text-[#0c7a4b] flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 stroke-[2]" />
                 </div>
 
-                <div className="space-y-0.5 min-w-0">
+                <div className="space-y-2 min-w-0">
                   <span className="text-[11px] text-neutral-400 font-bold uppercase tracking-wider block">
                     {channel.label}
                   </span>
                   <span
-                    className={`text-xs font-extrabold text-slate-900 block truncate transition-colors ${channel.link ? "group-hover:text-[#0c7a4b]" : ""}`}
+                    className={`text-xs font-extrabold text-[#0c7a4b] block truncate transition-colors ${channel.link ? "group-hover:text-[#0c7a4b]" : ""}`}
                   >
                     {channel.value}
                   </span>

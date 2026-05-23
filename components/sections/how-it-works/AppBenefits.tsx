@@ -95,16 +95,16 @@ const appBenefits = [
 
 export default function HowAppPromo() {
   return (
-    <section className="w-full py-16 px-10 bg-[#f6f6f6] overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 items-center gap-16">
+    <section className="w-full py-16 px-16 bg-[#f6f6f6] overflow-hidden">
+      <div className=" mx-auto">
+        <div className="grid lg:grid-cols-12 items-center gap-8">
           {/* LEFT CONTENT */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-10 col-span-7"
           >
             {/* Heading */}
             <div>
@@ -159,7 +159,7 @@ export default function HowAppPromo() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="relative flex justify-center"
+            className="relative flex justify-center col-span-5"
           >
             {/* BACKGROUND CIRCLE */}
             <div className="absolute w-[380px] h-[380px] bg-[#eef7f2] rounded-full right-10 top-10" />

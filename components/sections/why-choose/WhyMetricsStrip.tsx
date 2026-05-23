@@ -11,8 +11,8 @@ const metricStats = [
 
 export default function WhyMetricsStrip() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div className="w-full rounded-[24px] bg-[#032f19] text-white py-8 px-6 lg:px-12 grid grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 items-center justify-between shadow-md">
+    <section className="w-full bg-[#f6f6f6] mx-auto px-8 sm:px-6 lg:px-16 py-0">
+      <div className="w-full rounded-[24px] bg-[#032f19] text-white py-8 px-6 grid grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 items-center justify-between shadow-md">
         {metricStats.map((stat, idx) => {
           const Icon = stat.icon;
           return (

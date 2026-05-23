@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Headphones, Zap, ShieldCheck, Send } from "lucide-react";
+import HeroText from "@/components/common/HeroText";
+import { motion } from "framer-motion";
+import { containerStagger, fadeUp, slideRight, scaleIn } from "@/lib/animation";
 
 export default function ContactHero() {
   const [formData, setFormData] = useState({
@@ -24,18 +27,24 @@ export default function ContactHero() {
         {/* Left Informational Value Proposition Block */}
         <div className="lg:col-span-4 space-y-8 lg:pr-4">
           <div className="space-y-3">
-            <span className="text-xs uppercase font-extrabold tracking-wider text-[#0c7a4b]">
-              Contact Us
-            </span>
-            <h1 className="text-3xl md:text-4xl font-black text-[#032f19] tracking-tight leading-tight">
-              We&apos;re Here to Help
-              <br />
-              Let&apos;s Connect!
-            </h1>
-            <p className="text-neutral-500 text-xs md:text-sm font-normal leading-relaxed">
-              Have a question, need assistance, or want to learn more about our
-              rental equipment? Our team is ready to help you.
-            </p>
+            <motion.div variants={fadeUp}>
+              <span className="inline-flex items-center rounded-md bg-[#0c7a4b]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#0c7a4b]">
+                Contact Us
+              </span>
+            </motion.div>
+            <HeroText
+              size="md"
+              title={
+                <>
+                  We&apos;re Here to
+                  <span className="text-[#1ea672]"> Help </span>
+                  <br />
+                  Let&apos;s Connect!
+                </>
+              }
+              description="Have a question, need assistance, or want to learn more about our
+              rental equipment? Our team is ready to help you."
+            />
           </div>
 
           {/* Quick Core Trust Vectors */}
@@ -179,7 +188,7 @@ export default function ContactHero() {
         {/* Right High-Definition Showroom Warehouse Aspect Container Column */}
         <div className="lg:col-span-4 relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-md">
           <Image
-            src="/images/Contact/showroom-display.jpg"
+            src="/images/Borvi-6.png"
             alt="Borvi professional rental equipment lineup display depot center"
             fill
             priority

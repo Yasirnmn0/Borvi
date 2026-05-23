@@ -9,8 +9,6 @@ export const fadeUp = {
   },
 };
 
-// lib/animation.ts  (or wherever you keep it)
-
 export const containerStagger = {
   hidden: {},
   show: {
@@ -52,6 +50,14 @@ export const slideLeft: Variants = {
     transition: {
       duration: 0.6,
       ease: "easeOut",
+    },
+  },
+};
+export const stagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
     },
   },
 };

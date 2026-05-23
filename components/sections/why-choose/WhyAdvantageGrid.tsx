@@ -44,7 +44,7 @@ const advantageItems = [
 
 export default function WhyAdvantageGrid() {
   return (
-    <section className="w-full bg-white py-16 border-t border-neutral-50">
+    <section className="w-full bg-[#f6f6f6] py-16 border-t border-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-xl mx-auto space-y-3 mb-12">
           <h2 className="text-2xl md:text-3xl font-black text-[#032f19] tracking-tight">
@@ -62,9 +62,9 @@ export default function WhyAdvantageGrid() {
             return (
               <div
                 key={idx}
-                className="bg-neutral-50/60 rounded-2xl border border-neutral-100/70 p-5 flex flex-col items-center text-center space-y-4 hover:bg-white hover:shadow-xl hover:shadow-neutral-100/50 transition-all duration-300 group"
+                className="bg-white rounded-2xl border border-neutral-100/70 p-5 flex flex-col items-center text-center space-y-4 hover:shadow-xl hover:shadow-neutral-100/50 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#e7f2ec] text-[#0c7a4b] flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <div className="w-12 h-12 rounded-xl bg-[#f6f6f6] text-[#0c7a4b] flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
                   <Icon className="w-6 h-6 stroke-[1.75]" />
                 </div>
                 <div className="space-y-1">

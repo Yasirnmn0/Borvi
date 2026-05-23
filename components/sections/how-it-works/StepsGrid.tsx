@@ -140,7 +140,7 @@ export default function HowSteps() {
             {idx < 3 && (
               <motion.div
                 variants={fadeUp}
-                className="hidden lg:block absolute top-[35%] -right-4 w-8 h-4 z-10 text-slate-300 pointer-events-none"
+                className="hidden lg:block absolute top-[35%] -right-8 w-8 h-4 z-10 text-[#0c7a4b] pointer-events-none"
               >
                 <svg
                   viewBox="0 0 24 12"

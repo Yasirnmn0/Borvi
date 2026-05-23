@@ -1,57 +1,25 @@
 "use client";
 
 import Container from "@/components/layout/Container";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Search, Download, Calendar, Truck } from "lucide-react";
-import { containerStagger, fadeUp, slideRight, scaleIn } from "@/lib/animation";
-
-const steps = [
-  {
-    title: "Browse Equipment",
-    desc: "Explore a wide range of equipment you need.",
-    icon: Search,
-  },
-  {
-    title: "Download Our App",
-    desc: "Get our app from Play Store or App Store.",
-    icon: Download,
-  },
-  {
-    title: "Book Through App",
-    desc: "Choose equipment, select duration & book.",
-    icon: Calendar,
-  },
-  {
-    title: "Pickup or Delivery",
-    desc: "Pick up from location or get it delivered.",
-    icon: Truck,
-  },
-];
-
-const features = [
-  "Top Quality Equipment",
-  "Affordable Pricing",
-  "Flexible Rental Plans",
-  "On-time Delivery",
-  "Well Maintained & Sanitized",
-  "24/7 Customer Support",
-];
+import { steps, features } from "@/data/homedata";
+import { containerStagger, fadeUp, scaleIn, slideRight } from "@/lib/animation";
+import Image from "next/image";
 
 export const HowItWorksPreview = () => {
   return (
-    <section className="py-32 bg-[#f6f6f6] overflow-hidden">
+    <section className="py-16 md:py-20 bg-[#f6f6f6] overflow-hidden">
       <Container>
-        <div className="grid grid-cols-2 gap-6">
-          {/* LEFT - HOW IT WORKS */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+          {/* LEFT */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="bg-white shadow-md rounded-2xl p-6 relative"
+            className="bg-white shadow-md rounded-2xl p-6 md:p-8"
           >
-            <h2 className="text-2xl font-bold text-center mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-center mb-10">
               How Renting <span className="text-[#1ea672]">Works</span>
             </h2>
 
@@ -60,42 +28,41 @@ export const HowItWorksPreview = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="relative grid grid-cols-4 gap-6 text-center"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 relative"
             >
-              {/* Line */}
-              <div className="absolute top-[38px] left-[8%] w-[84%] border-t border-dashed border-gray-300"></div>
+              {/* Line (hide on mobile) */}
+              {/* <div className="hidden sm:block absolute top-[40px] md:top-[50px] left-[10%] w-[80%] border-t border-dashed border-gray-300" /> */}
 
               {steps.map((step, index) => {
-                const Icon = step.icon;
-
                 return (
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    whileHover={{ y: -4 }}
-                    className="relative z-10 flex flex-col items-center"
+                    whileHover={{ y: -6 }}
+                    className="flex flex-col items-center text-center"
                   >
-                    {/* ICON */}
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 200 }}
-                      className="w-16 h-16 bg-[#f6f6f6] rounded-full shadow-md flex items-center justify-center"
-                    >
-                      <Icon className="w-6 h-6 text-[#1ea672]" />
-                    </motion.div>
+                    {/* IMAGE ICON */}
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-[#f1f5f3] rounded-full shadow flex items-center justify-center overflow-hidden">
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
 
                     {/* NUMBER */}
-                    <div className="w-6 h-6 mt-3 rounded-full bg-[#0F3D2E] text-white text-xs flex items-center justify-center">
+                    <div className="w-6 h-6 mt-2 rounded-full bg-[#0F3D2E] text-white text-xs flex items-center justify-center">
                       {index + 1}
                     </div>
 
-                    {/* TITLE */}
-                    <h4 className="mt-4 font-semibold text-sm text-[#1b1b1b]">
+                    {/* TEXT */}
+                    <h4 className="mt-3 text-xs md:text-sm font-semibold text-[#1b1b1b]">
                       {step.title}
                     </h4>
 
-                    {/* DESC */}
-                    <p className="text-xs text-gray-500 mt-2 max-w-[140px]">
+                    <p className="text-[11px] md:text-xs text-gray-500 mt-1 max-w-[120px]">
                       {step.desc}
                     </p>
                   </motion.div>
@@ -110,10 +77,20 @@ export const HowItWorksPreview = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-[#0F3D2E] to-[#145A45] text-white rounded-2xl flex items-center justify-between px-6 py-4 overflow-hidden"
+            className="
+    bg-gradient-to-r from-[#0F3D2E] to-[#145A45] 
+    text-white 
+    rounded-2xl 
+    flex flex-col lg:flex-row 
+    items-center 
+    justify-between 
+    px-6 py-6 lg:py-4 
+    gap-8
+    overflow-hidden
+  "
           >
             {/* TEXT */}
-            <div className="max-w-sm">
+            <div className="max-w-sm w-full order-1">
               <h2 className="text-2xl font-bold mb-6">
                 Why <span className="text-[#1ea672]">Choose</span> Us?
               </h2>
@@ -143,15 +120,40 @@ export const HowItWorksPreview = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="relative flex-1 flex justify-end"
+              className="
+      order-2
+      w-full 
+      flex 
+      justify-center 
+      lg:justify-end
+    "
             >
-              <Image
-                src="/images/toolbox.png"
-                alt="Toolbox"
-                width={420}
-                height={420}
-                className="object-contain scale-110 translate-x-16"
-              />
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                <Image
+                  src="/images/toolbox.png"
+                  alt="Toolbox"
+                  width={420}
+                  height={420}
+                  className="
+          object-contain
+          w-[240px]
+          sm:w-[300px]
+          md:w-[340px]
+          lg:w-[420px]
+          h-auto
+          lg:scale-110
+          lg:translate-x-16
+        "
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
