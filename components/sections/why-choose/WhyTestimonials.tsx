@@ -6,33 +6,8 @@ import Container from "@/components/layout/Container";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, containerStagger, scaleIn } from "@/lib/animation";
-
-const testimonials = [
-  {
-    name: "Rohit Sharma",
-    location: "Delhi",
-    text: "Great experience! Equipment was in excellent condition and delivery was very prompt.",
-    image: "/images/User1.png",
-  },
-  {
-    name: "Anjali Verma",
-    location: "Noida",
-    text: "Very affordable and the app is so easy to use. Highly recommended!",
-    image: "/images/User2.png",
-  },
-  {
-    name: "Vikram Mehta",
-    location: "Gurgaon",
-    text: "Rented a tent for our trip. Quality was amazing and the process was smooth.",
-    image: "/images/User3.png",
-  },
-  {
-    name: "Siddharth Malhotra",
-    location: "Mumbai",
-    text: "Excellent support team and seamless booking. Will definitely use it again.",
-    image: "/images/User4.png",
-  },
-];
+import SectionHeading from "@/components/common/SectionHeading";
+import { testimonials } from "@/data/WhychooseData";
 
 export default function WhyTestimonials() {
   const [startIndex, setStartIndex] = useState(0);
@@ -68,10 +43,16 @@ export default function WhyTestimonials() {
           viewport={{ once: true }}
           className="flex flex-col items-center text-center mb-14"
         >
-          <h2 className="text-[42px] font-extrabold tracking-[-1px] text-[#111827]">
+          {/* <h2 className="text-[42px] font-extrabold tracking-[-1px] text-[#111827]">
             What Our <span className="text-[#0c7a4b]">Customers</span> Say
-          </h2>
-
+          </h2> */}
+          <SectionHeading
+            title={
+              <>
+                What Our <span className="text-[#0c7a4b]">Customers</span> Say
+              </>
+            }
+          />
           <div className="mt-3 flex w-12 h-1.5 rounded-full overflow-hidden">
             <div className="bg-[#111827] w-1/3" />
             <div className="bg-[#0c7a4b] w-2/3" />

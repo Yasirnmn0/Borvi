@@ -56,7 +56,7 @@ export default function GridCardSection({
   };
 
   return (
-    <section className="w-full py-16 bg-[#f6f6f6]">
+    <section id="Categories" className="w-full py-16 bg-[#f6f6f6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADING */}
         <div className="text-center max-w-xl mx-auto mb-12">

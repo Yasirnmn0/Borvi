@@ -84,7 +84,13 @@ export default function HeroSection() {
                 Download App
               </button>
 
-              <button className="border border-[#0d7a52] bg-white text-[#111827] px-5 py-3 rounded-lg text-sm font-medium flex items-center justify-center gap-2 w-full sm:w-auto">
+              <button
+                onClick={() => {
+                  const section = document.getElementById("Categories");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="border border-[#0d7a52] bg-white text-[#111827] px-5 py-3 rounded-lg text-sm font-medium flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
                 Explore Equipment
                 <ChevronRight size={18} />
               </button>
@@ -109,7 +115,7 @@ export default function HeroSection() {
                     className="flex items-center gap-3 text-left"
                   >
                     {/* ICON */}
-                    <Icon className="text-[#111827]" size={26} />
+                    <Icon className="text-[#0d7a52]" size={36} />
 
                     {/* TEXT */}
                     <div>

@@ -8,11 +8,11 @@ import {
   categoryItems,
   footerNavItems,
 } from "@/data/FooterData";
-
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/layout/Container";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-
+import BorviLogo from "@/lib/logo";
 export default function Footer() {
   return (
     <footer className="bg-[#032b16] text-slate-300 font-sans border-t border-emerald-900/40 w-full">
@@ -20,17 +20,18 @@ export default function Footer() {
         {/* Main Grid structure centered on all displays */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr_1fr] gap-10 lg:gap-6 items-start text-center">
           {/* Column 1: Identity & Brand Bio */}
-          <div className="flex flex-col space-y-5 w-full">
-            <Link
-              href="/"
-              className="flex items-center gap-3 group justify-center"
-            >
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#032b16] shadow-sm">
-                <span className="text-xl font-extrabold">B</span>
-              </div>
-              <span className="text-xl font-extrabold text-white">Borvi</span>
+          <div className="flex flex-col justify-center item-center space-y-5 w-full">
+            <Link href="/" className=" items-center justify-center">
+              <Image
+                src="/images/Borvi-logo1.png"
+                alt="Borvi Logo"
+                width={150}
+                height={20}
+                className="object-contain"
+              />
+              {/* <BorviLogo /> */}
             </Link>
-            <p className="text-[14px] leading-relaxed text-slate-300/90 max-w-[260px]">
+            <p className="text-[14px] leading-relaxed text-slate-300/90 ">
               We provide high-quality equipment on rent including tools,
               machines, camping gear, bikes, and more.
             </p>

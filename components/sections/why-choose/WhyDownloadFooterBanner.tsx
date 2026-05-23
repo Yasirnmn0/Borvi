@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, slideRight, scaleIn, containerStagger } from "@/lib/animation";
+
 export default function WhyDownloadFooterBanner() {
   return (
     <section className="bg-[#f6f6f6] overflow-hidden">
