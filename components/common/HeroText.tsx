@@ -24,7 +24,7 @@ export default function HeroText({
   const headingSize = {
     sm: "text-[28px] leading-[34px] lg:text-[36px] lg:leading-[42px]",
     md: "text-[30px] leading-[36px] lg:text-[40px] lg:leading-[48px]",
-    lg: "text-[30px] leading-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] lg:leading-[62px]",
+    lg: "text-[30px] leading-[36px] sm:text-[40px] md:text-[48px] lg:text-[48px] lg:leading-[62px]",
   };
 
   // 🎯 Alignment

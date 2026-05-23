@@ -1,14 +1,14 @@
 "use client";
 
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-
+import SectionHeading from "@/components/common/SectionHeading";
 const channels = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 98765 43210",
+    value: " +49 30 12345678",
     subtext: "Mon - Sun: 8:00 AM - 8:00 PM",
-    link: "tel:+919876543210",
+    link: "tel: +49 30 12345678",
   },
   {
     icon: Mail,
@@ -20,8 +20,8 @@ const channels = [
   {
     icon: MapPin,
     label: "Address",
-    value: "123, Sector 45, Noida,",
-    subtext: "Uttar Pradesh, India",
+    value: "Friedrichstraße 123,",
+    subtext: "10117 Berlin, Germany",
     link: "https://maps.google.com",
   },
   {
@@ -39,13 +39,30 @@ export default function ContactCardsGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Underlined Header Block */}
         <div className="text-center space-y-1">
-          <h2 className="text-2xl font-black text-[#032f19] tracking-tight relative inline-block">
+          {/* <h2 className="text-2xl font-black text-[#032f19] tracking-tight relative inline-block">
             Get in <span className="text-[#0c7a4b] relative z-10">Touch</span>
             <span className="absolute bottom-0 left-1/3 right-1/3 h-[2.5px] bg-[#0c7a4b] rounded-full mt-4" />
           </h2>
           <p className="text-neutral-400 text-xs font-medium pt-2">
             Reach out to us through any of these channels.
-          </p>
+          </p> */}
+
+          <SectionHeading
+            title={
+              <>
+                Get <span className="text-[#0c7a4b]">Touch</span>
+                <br />
+                <span className="bg-[#0c7a4b] w-2/3 pt-4"></span>
+              </>
+            }
+            subtitle="Reach out to us through any of these channels."
+          />
+
+          <div className="mt-3 flex w-12 h-1.5 rounded-full overflow-hidden">
+            <div className="bg-[#111827] w-1/3" />
+            <div className="bg-[#0c7a4b] w-2/3" />
+            <div className="bg-[#111827] w-1/3" />
+          </div>
         </div>
 
         {/* 4-Column Structured Flex Layout Matrix */}

@@ -4,7 +4,6 @@ import Container from "@/components/layout/Container";
 import { Users, Package, LayoutGrid, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { containerStagger, fadeUp, scaleIn } from "@/lib/animation";
-import React from "react";
 
 const stats = [
   {

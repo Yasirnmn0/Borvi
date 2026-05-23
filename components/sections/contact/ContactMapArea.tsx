@@ -8,8 +8,9 @@ export default function ContactMapArea() {
       <div className="relative w-full h-[360px] rounded-[28px] overflow-hidden shadow-md border border-neutral-200">
         {/* MAP */}
         <iframe
-          src="https://www.google.com/maps?q=Delhi&output=embed"
-          className="w-full h-full border-0"
+          title="Germany Office Location"
+          src="https://maps.google.com/maps?q=Friedrichstraße%20123,%20Berlin,%20Germany&t=&z=13&ie=UTF-8&iwloc=&output=embed"
+          className="w-full h-full object-cover filter grayscale opacity-75 contrast-[1.1]"
           loading="lazy"
         />
 

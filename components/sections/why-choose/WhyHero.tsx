@@ -18,7 +18,7 @@ export default function WhyHero() {
           viewport={{ once: true }}
           className="lg:col-span-5"
         >
-          <div className="space-y-6 py-8 px-10">
+          <div className="space-y-6 py-6 px-10">
             {/* Badge */}
             <motion.div variants={fadeUp}>
               <span className="inline-flex items-center rounded-md bg-[#0c7a4b]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#0c7a4b]">
@@ -26,7 +26,7 @@ export default function WhyHero() {
               </span>
             </motion.div>
             <HeroText
-              size="md"
+              size="lg"
               title={
                 <>
                   More Than Equipment.
@@ -66,7 +66,7 @@ export default function WhyHero() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative lg:col-span-7 py-8 overflow-hidden"
+          className="relative lg:col-span-7 py-8 overflow-visiable"
         >
           <motion.div variants={scaleIn}>
             <Image
@@ -79,7 +79,7 @@ export default function WhyHero() {
             />
           </motion.div>
           {/* Floating Customer Badge */}
-          <motion.div className="absolute z-20 bottom-28 left-[-20] bg-white rounded-2xl p-3 shadow-lg border border-neutral-100/80 flex items-center gap-3">
+          <motion.div className="absolute z-20 bottom-32 left-0 translate-x-[-40%] md:translate-x-[-50%] bg-white rounded-2xl px-4 py-3 shadow-xl border border-neutral-200 flex items-center gap-3">
             <motion.div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0c7a4b] flex items-center justify-center shrink-0">
               <ShieldCheck className="w-5 h-5 fill-[#0c7a4b]/10" />
             </motion.div>

@@ -33,7 +33,7 @@ export default function HowHero() {
             </motion.h1> */}
           </div>
           <HeroText
-            size="md"
+            size="lg"
             title={
               <>
                 Renting Made Simple <br />
